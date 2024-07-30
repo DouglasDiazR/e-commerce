@@ -26,6 +26,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./Dockerfile
+          file: ./e-commerce/ecommerce-douglas-diaz-r/Dockerfile
+
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/demo-ft50:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/e-commerce:latest
