@@ -43,14 +43,18 @@ export class AuthRepository {
 
       const userId = createdUser.identifiers[0].id;
       const newUser = await this.usersRepository.findOneBy({ id: userId });
+      console.log('usuario', newUser);
 
-      await this.mailService.sendMail(
+      const sendEmail = await this.mailService.sendMail(
         newUser.email,
         'bienvenido a nuestra aplicación',
         `hola ${newUser.name} gracias por registrarse en nuestra aplicación`,
       );
+      if (!sendEmail) console.log('No se pude enviar el correo');
+      console.log('email enviado');
       return newUser;
     } catch (error) {
+      console.log('error', error);
       throw new InternalServerErrorException('No se pudo registrar el usuario');
     }
   }

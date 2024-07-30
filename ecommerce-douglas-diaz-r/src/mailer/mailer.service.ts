@@ -1,5 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import * as nodemailer from 'nodemailer';
+import { config as dotenvConfig } from 'dotenv';
+
+dotenvConfig({ path: '.development.env' });
 
 @Injectable()
 export class MailerService {
