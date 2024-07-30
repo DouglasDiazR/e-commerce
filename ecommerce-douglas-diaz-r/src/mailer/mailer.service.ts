@@ -9,8 +9,8 @@ export class MailerService {
     this.transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: 'comicraft2024@gmail.com',
-        pass: 'wkthcgnrndddhbrq',
+        user: process.env.MAIL_USER,
+        pass: process.env.MAIL_PASSWORD,
       },
     });
   }

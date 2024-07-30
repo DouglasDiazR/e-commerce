@@ -11,6 +11,7 @@ import { CategoriesModule } from './categories/categories.module';
 import { OrdersModule } from './orders/orders.module';
 import { FilesModule } from './files/files.module';
 import { JwtModule } from '@nestjs/jwt';
+import { MailerModule } from './mailer/mailer.module';
 
 @Module({
   imports: [
@@ -34,6 +35,7 @@ import { JwtModule } from '@nestjs/jwt';
     CategoriesModule,
     OrdersModule,
     FilesModule,
+    MailerModule,
   ],
   controllers: [AppController],
   providers: [AppService],

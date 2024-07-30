@@ -18,8 +18,8 @@ const config = {
   entities: [Users, Products, Orders, OrderDetails, Categories],
   migrations: ['dist/migrations/*{.ts, .js}'],
   logging: false,
-  synchronize: true,
-  dropSchema: true,
+  synchronize: false,
+  dropSchema: false,
 };
 
 export const typeOrmConfig = registerAs('typeorm', () => config);
