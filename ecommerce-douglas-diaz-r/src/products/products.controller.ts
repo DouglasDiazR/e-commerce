@@ -27,7 +27,6 @@ export class ProductsController {
   constructor(private readonly productsService: ProductsService) {}
 
   @HttpCode(200)
-  @ApiBearerAuth()
   @Get()
   getProducts(@Query('page') page: string, @Query('limit') limit: string) {
     !page ? (page = '1') : page;
@@ -37,23 +36,18 @@ export class ProductsController {
   }
 
   @Get('seeder')
-  @ApiBearerAuth()
-  @Roles(Role.Admin)
-  @UseGuards(AuthGuard, RolesGuard)
   @HttpCode(200)
   addProducts() {
     return this.productsService.seederProducts();
   }
 
   @Get(':id')
-  @ApiBearerAuth()
   @HttpCode(200)
   getProductById(@Param('id', ParseUUIDPipe) id: string) {
     return this.productsService.getProductById(id);
   }
 
   @Post()
-  @Roles(Role.Admin)
   @UseGuards(AuthGuard, RolesGuard)
   @ApiBearerAuth()
   @HttpCode(201)
@@ -82,4 +76,3 @@ export class ProductsController {
     return this.productsService.updateProduct(id, product);
   }
 }
-

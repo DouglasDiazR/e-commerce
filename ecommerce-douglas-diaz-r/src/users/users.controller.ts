@@ -26,7 +26,6 @@ export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
   @Get()
-  @ApiBearerAuth()
   @UseInterceptors(PasswordInterceptor)
   @HttpCode(200)
   getUsers(@Query('page') page: string, @Query('limit') limit: string) {
@@ -37,7 +36,6 @@ export class UsersController {
   }
 
   @Get(':id')
-  @ApiBearerAuth()
   @UseInterceptors(PasswordInterceptor)
   @HttpCode(200)
   async getUserById(@Param('id', ParseUUIDPipe) id: string) {
