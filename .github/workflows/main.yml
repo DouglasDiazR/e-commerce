@@ -25,7 +25,7 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v5
         with:
-          context: .
+          context: ./ecommerce-douglas-diaz-r
           file: ./ecommerce-douglas-diaz-r/Dockerfile
 
           push: true
