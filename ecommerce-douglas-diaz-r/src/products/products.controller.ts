@@ -28,7 +28,6 @@ export class ProductsController {
 
   @HttpCode(200)
   @ApiBearerAuth()
-  @UseGuards(AuthGuard)
   @Get()
   getProducts(@Query('page') page: string, @Query('limit') limit: string) {
     !page ? (page = '1') : page;
@@ -48,7 +47,6 @@ export class ProductsController {
 
   @Get(':id')
   @ApiBearerAuth()
-  @UseGuards(AuthGuard)
   @HttpCode(200)
   getProductById(@Param('id', ParseUUIDPipe) id: string) {
     return this.productsService.getProductById(id);

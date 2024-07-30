@@ -27,7 +27,6 @@ export class UsersController {
 
   @Get()
   @ApiBearerAuth()
-  @Roles(Role.Admin)
   @UseGuards(AuthGuard, RolesGuard)
   @UseInterceptors(PasswordInterceptor)
   @HttpCode(200)
@@ -40,7 +39,6 @@ export class UsersController {
 
   @Get(':id')
   @ApiBearerAuth()
-  @Roles(Role.Admin)
   @UseGuards(AuthGuard, RolesGuard)
   @UseInterceptors(PasswordInterceptor)
   @HttpCode(200)
